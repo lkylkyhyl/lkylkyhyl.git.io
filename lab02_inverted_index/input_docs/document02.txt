@@ -1,0 +1,5 @@
+Big data analytics involves extracting meaningful patterns and knowledge from massive datasets with high velocity, volume, and variety.
+Efficient index structures are fundamental to fast data retrieval and search operations across distributed clusters.
+Without an effective index, searching through terabytes of raw text data would require scanning the entire dataset sequentially.
+Modern big data architectures integrate distributed storage with inverted index mechanisms to support sub-second query latency.
+Data indexing transforms unstructured data into structured key-value pairs, greatly accelerating analytical query processing.

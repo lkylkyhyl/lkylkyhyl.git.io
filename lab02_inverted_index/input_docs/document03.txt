@@ -1,0 +1,5 @@
+Web search engines rely heavily on crawlers and inverted indexes to provide fast search results for millions of user queries.
+A search engine crawls web documents, extracts content, filters stopwords, and constructs a comprehensive index of terms.
+Distributed search systems often employ Hadoop and MapReduce clusters to build and update their inverted index pipelines.
+When a user enters search terms, the search engine looks up the index to quickly locate documents containing those terms.
+Ranking algorithms then evaluate relevance and sort the matching search results before delivering them to users.

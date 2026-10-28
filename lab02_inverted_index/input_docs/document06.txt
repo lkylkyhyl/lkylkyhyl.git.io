@@ -1,0 +1,5 @@
+An inverted index is an index data structure storing a mapping from words to their locations in a set of documents.
+It is the standard index design used by modern search engines and full-text retrieval databases.
+Each entry in an inverted index consists of a dictionary term followed by a postings list indicating which documents contain the term.
+The postings list may also record term frequencies, document identifiers, and exact word positions for phrase search.
+Building an inverted index with MapReduce scales effectively because posting lists can be merged concurrently during the reduce stage.

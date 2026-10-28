@@ -1,6 +1,36 @@
-# 实验一 大数据系统基本实验 — 代码
+# 山东大学《大数据管理与分析》课程实验代码仓库
 
-SDU 大数据管理与分析 课程实验一配套代码。
+- **学生姓名**：侯亚琳
+- **学号**：202400390065
+- **班级**：人工智能2班
+- **邮箱**：2070575920@qq.com
+
+---
+
+## 实验导航
+
+### 📂 [实验一：大数据系统基本实验 (HDFS & MapReduce 基础)](./)
+- **HDFS Java API 综合程序**：`HDFSApp.java`，覆盖上传、覆盖、追加、下载自动重命名、递归查看、目录删除等 10 项操作；
+- **MapReduce 文件合并去重**：`MergeDedup.java`；
+- **MapReduce 整数排序**：`SortNum.java`；
+- **MapReduce 单表自连接挖掘祖孙关系**：`GrandChild.java`；
+- **测试数据与脚本**：`data/`、`ha`。
+
+---
+
+### 📂 [实验二：文档倒排索引算法实现 (Inverted Index with MapReduce)](./lab02_inverted_index/)
+基于 Apache Hadoop 3.3.6 伪分布式环境，面向 10 篇英文技术文献构建分布式倒排索引：
+- **核心源码**：[`lab02_inverted_index/src/InvertedIndex.java`](./lab02_inverted_index/src/InvertedIndex.java)（内嵌 DistributedCache 停词过滤与 Mapper 局部规约优化）；
+- **停词表**：[`lab02_inverted_index/stopwords.txt`](./lab02_inverted_index/stopwords.txt)（包含 175 个常见英文功能虚词）；
+- **输入文档集**：[`lab02_inverted_index/input_docs/`](./lab02_inverted_index/input_docs/)（10 篇英文科技文献，总计 6.35 KB）；
+- **倒排索引结果**：[`lab02_inverted_index/output/part-r-00000`](./lab02_inverted_index/output/part-r-00000)（388 个独立词项输出）；
+- **自动化运行脚本**：[`lab02_inverted_index/scripts/run_hadoop_job.sh`](./lab02_inverted_index/scripts/run_hadoop_job.sh)；
+- **实验报告 PDF**：[`lab02_inverted_index/202400390065-侯亚琳-实验二.pdf`](./lab02_inverted_index/202400390065-侯亚琳-实验二.pdf)；
+- **详细技术文档**：[`lab02_inverted_index/README.md`](./lab02_inverted_index/README.md)。
+
+---
+
+## 实验一 详细说明与使用
 
 ## 目录结构
 

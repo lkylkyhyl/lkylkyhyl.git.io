@@ -1,0 +1,5 @@
+The Hadoop Distributed File System (HDFS) provides high-throughput access to application data across large computer clusters.
+HDFS follows a master-slave architecture where the NameNode manages file system metadata and DataNodes store actual data blocks.
+To ensure fault tolerance and high availability, each data block is automatically replicated across multiple DataNodes.
+Applications access data sequentially with high streaming read rates, making HDFS ideal for batch processing workloads.
+Distributed data management in HDFS guarantees data integrity even when individual commodity nodes fail unexpectedly.

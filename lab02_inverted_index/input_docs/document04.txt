@@ -1,0 +1,6 @@
+The MapReduce programming model divides a computational task into two primary phases: map and reduce.
+In the map phase, the master node divides input data into independent chunks and passes them to mapper tasks.
+Each mapper processes a chunk of data and emits intermediate key-value pairs.
+The Hadoop framework sorts and shuffles these intermediate pairs by key before transferring them to reducers.
+In the reduce phase, reducer tasks aggregate the values associated with each unique key to produce the final output.
+MapReduce simplifies parallel programming by automatically handling data distribution, fault recovery, and job scheduling.

@@ -1,0 +1,5 @@
+Apache Hadoop is an open source framework designed for distributed storage and distributed processing of very large data sets.
+It consists of two core components: the Hadoop Distributed File System (HDFS) and the MapReduce computation framework.
+Hadoop allows clusters of commodity hardware to store petabytes of data reliably by replicating data blocks across nodes.
+MapReduce provides a software model for parallel data processing, enabling applications to run on thousands of compute nodes.
+With Hadoop, big data processing became scalable, fault-tolerant, and accessible to enterprise data analysis and web indexing systems.
