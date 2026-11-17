@@ -4,12 +4,12 @@
 
 ## 内容
 
-- `src/HBaseLab.java`：HBase Java API，全部题目接口及自动断言。
+- `src/HBaseLab.java`：HBase Java API，表管理与数据增删改查。
 - `scripts/hbase_shell.rb`：同等 Shell 操作、三表数据导入、增删改查。
 - `src/PageRankMR.java`：真实 Hadoop MapReduce，连续 10 个作业。
 - `src/pagerank_spark.py`：Spark RDD，YARN client 模式，连续 10 轮。
-- `data/graph.tsv`：10 个节点、15 条边（由校验脚本核验），J 无出链，I 无入链。
-- `results/`：两个框架最终结果、逐轮状态与独立 Decimal 校验。
+- `data/graph.tsv`：10 个节点、15 条边，J 无出链，I 无入链。
+- `results/`：两个框架的最终排名、逐轮状态与辅助计算结果。
 - `logs/`：HBase 操作记录、服务启动日志与计算作业运行日志。
 - `交付物/`：PDF 实验报告和完整压缩包。
 
