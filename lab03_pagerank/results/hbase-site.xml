@@ -1,0 +1,8 @@
+<configuration>
+<property><name>hbase.rootdir</name><value>hdfs://localhost:9000/user/sasuke/lab3/hbase</value></property>
+<property><name>hbase.cluster.distributed</name><value>false</value></property>
+<property><name>hbase.zookeeper.property.dataDir</name><value>/home/sasuke/bigdata/lab3/zk</value></property>
+<property><name>hbase.unsafe.stream.capability.enforce</name><value>false</value></property>
+<property><name>hbase.wal.provider</name><value>filesystem</value></property>
+<property><name>hbase.master.store.region.wal.provider</name><value>filesystem</value></property>
+</configuration>

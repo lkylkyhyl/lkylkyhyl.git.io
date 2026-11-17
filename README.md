@@ -87,3 +87,8 @@ hdfs dfs -cat /user/sasuke/mr_out/merge/part-r-00000
 hdfs dfs -cat /user/sasuke/mr_out/sort/part-r-00000
 hdfs dfs -cat /user/sasuke/mr_out/gc/part-r-00000
 ```
+
+## 实验三 HBase 与 PageRank
+
+[实验三代码与报告](lab03_pagerank/README.md) 包含 HBase Java API 与 Shell 操作、
+Hadoop MapReduce 和 Spark RDD 两种 PageRank 实现、十轮计算结果及 PDF 实验报告。

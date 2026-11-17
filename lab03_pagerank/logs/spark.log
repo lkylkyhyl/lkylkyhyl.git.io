@@ -1,0 +1,90 @@
+26/11/16 16:06:31 WARN Utils: Your hostname, sasuke-VirtualBox resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)
+26/11/16 16:06:31 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/11/16 16:06:35 INFO SparkContext: Running Spark version 3.5.3
+26/11/16 16:06:35 INFO SparkContext: OS info Linux, 6.8.0-107-generic, amd64
+26/11/16 16:06:35 INFO SparkContext: Java version 1.8.0_502
+26/11/16 16:06:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/16 16:06:35 INFO ResourceUtils: ==============================================================
+26/11/16 16:06:35 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/16 16:06:35 INFO ResourceUtils: ==============================================================
+26/11/16 16:06:35 INFO SparkContext: Submitted application: lab3-pagerank-spark
+26/11/16 16:06:36 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/16 16:06:36 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+26/11/16 16:06:36 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/16 16:06:36 INFO SecurityManager: Changing view acls to: sasuke
+26/11/16 16:06:36 INFO SecurityManager: Changing modify acls to: sasuke
+26/11/16 16:06:36 INFO SecurityManager: Changing view acls groups to: 
+26/11/16 16:06:36 INFO SecurityManager: Changing modify acls groups to: 
+26/11/16 16:06:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: sasuke; groups with view permissions: EMPTY; users with modify permissions: sasuke; groups with modify permissions: EMPTY
+26/11/16 16:06:37 INFO Utils: Successfully started service 'sparkDriver' on port 43095.
+26/11/16 16:06:37 INFO SparkEnv: Registering MapOutputTracker
+26/11/16 16:06:38 INFO SparkEnv: Registering BlockManagerMaster
+26/11/16 16:06:38 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/16 16:06:38 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/16 16:06:38 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/16 16:06:38 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-47f63dce-cb18-4df5-b483-ae0f2ba60da8
+26/11/16 16:06:38 INFO MemoryStore: MemoryStore started with capacity 93.3 MiB
+26/11/16 16:06:38 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/16 16:06:40 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+26/11/16 16:06:42 INFO Configuration: resource-types.xml not found
+26/11/16 16:06:42 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+26/11/16 16:06:42 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+26/11/16 16:06:42 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+26/11/16 16:06:42 INFO Client: Setting up container launch context for our AM
+26/11/16 16:06:42 INFO Client: Setting up the launch environment for our AM container
+26/11/16 16:06:42 INFO Client: Preparing resources for our AM container
+26/11/16 16:06:42 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+26/11/16 16:06:48 INFO Client: Uploading resource file:/tmp/spark-3d8546e0-9585-472c-8f15-7d0b87cbeab1/__spark_libs__4780154692347286381.zip -> hdfs://localhost:9000/user/sasuke/.sparkStaging/application_1794815129122_0012/__spark_libs__4780154692347286381.zip
+26/11/16 16:06:52 INFO Client: Uploading resource file:/home/sasuke/bigdata/spark-3.5.3-bin-hadoop3/python/lib/pyspark.zip -> hdfs://localhost:9000/user/sasuke/.sparkStaging/application_1794815129122_0012/pyspark.zip
+26/11/16 16:06:52 INFO Client: Uploading resource file:/home/sasuke/bigdata/spark-3.5.3-bin-hadoop3/python/lib/py4j-0.10.9.7-src.zip -> hdfs://localhost:9000/user/sasuke/.sparkStaging/application_1794815129122_0012/py4j-0.10.9.7-src.zip
+26/11/16 16:06:53 INFO Client: Uploading resource file:/tmp/spark-3d8546e0-9585-472c-8f15-7d0b87cbeab1/__spark_conf__3652262148951764763.zip -> hdfs://localhost:9000/user/sasuke/.sparkStaging/application_1794815129122_0012/__spark_conf__.zip
+26/11/16 16:06:53 INFO SecurityManager: Changing view acls to: sasuke
+26/11/16 16:06:53 INFO SecurityManager: Changing modify acls to: sasuke
+26/11/16 16:06:53 INFO SecurityManager: Changing view acls groups to: 
+26/11/16 16:06:53 INFO SecurityManager: Changing modify acls groups to: 
+26/11/16 16:06:53 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: sasuke; groups with view permissions: EMPTY; users with modify permissions: sasuke; groups with modify permissions: EMPTY
+26/11/16 16:06:53 INFO Client: Submitting application application_1794815129122_0012 to ResourceManager
+26/11/16 16:06:53 INFO YarnClientImpl: Submitted application application_1794815129122_0012
+26/11/16 16:06:54 INFO Client: Application report for application_1794815129122_0012 (state: ACCEPTED)
+26/11/16 16:06:54 INFO Client: 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1794816413504
+	 final status: UNDEFINED
+	 tracking URL: http://sasuke-VirtualBox:8088/proxy/application_1794815129122_0012/
+	 user: sasuke
+26/11/16 16:07:13 INFO Client: Application report for application_1794815129122_0012 (state: RUNNING)
+26/11/16 16:07:13 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.0.2.15
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1794816413504
+	 final status: UNDEFINED
+	 tracking URL: http://sasuke-VirtualBox:8088/proxy/application_1794815129122_0012/
+	 user: sasuke
+26/11/16 16:07:13 INFO YarnClientSchedulerBackend: Application application_1794815129122_0012 has started running.
+26/11/16 16:07:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39447.
+26/11/16 16:07:13 INFO NettyBlockTransferService: Server created on 10.0.2.15:39447
+26/11/16 16:07:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/16 16:07:13 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> sasuke-VirtualBox, PROXY_URI_BASES -> http://sasuke-VirtualBox:8088/proxy/application_1794815129122_0012), /proxy/application_1794815129122_0012
+26/11/16 16:07:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.0.2.15, 39447, None)
+26/11/16 16:07:13 INFO BlockManagerMasterEndpoint: Registering block manager 10.0.2.15:39447 with 93.3 MiB RAM, BlockManagerId(driver, 10.0.2.15, 39447, None)
+26/11/16 16:07:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.0.2.15, 39447, None)
+26/11/16 16:07:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.0.2.15, 39447, None)
+26/11/16 16:07:15 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000000000(ns)
+26/11/16 16:07:15 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+ITERATION 1 COMPLETE mass=10.000000000000000 dangling=1.000000000000000
+ITERATION 2 COMPLETE mass=10.000000000000000 dangling=0.660000000000000
+ITERATION 3 COMPLETE mass=10.000000000000000 dangling=0.305975000000000
+ITERATION 4 COMPLETE mass=10.000000000000000 dangling=0.263600375000000
+ITERATION 5 COMPLETE mass=10.000000000000000 dangling=0.247209378750000
+ITERATION 6 COMPLETE mass=9.999999999999998 dangling=0.244285360740625
+ITERATION 7 COMPLETE mass=9.999999999999998 dangling=0.243444694470297
+ITERATION 8 COMPLETE mass=10.000000000000000 dangling=0.243267607686730
+ITERATION 9 COMPLETE mass=9.999999999999998 dangling=0.243222186241112
+ITERATION 10 COMPLETE mass=9.999999999999996 dangling=0.243211928158178

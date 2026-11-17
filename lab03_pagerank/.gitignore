@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.crc
+build/
+tmp/
+qa/
+.publish/
+交付物/*.zip

@@ -1,0 +1,261 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/sasuke/bigdata/hbase-2.5.11/lib/client-facing-thirdparty/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sasuke/bigdata/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+hbase:001:0> # Same operations as Java, using separate lab3_shell tables.
+hbase:002:0> %w[lab3_shell_Student lab3_shell_Course lab3_shell_SC lab3_shell_ops].each do |t|
+hbase:003:1*   if exists(t)
+    disable t
+    drop t
+  end
+end
+Table lab3_shell_Student does not exist
+Took 2.0629 seconds
+Table lab3_shell_Course does not exist
+Took 0.0169 seconds
+Table lab3_shell_SC does not exist
+Took 0.0208 seconds
+Table lab3_shell_ops does not exist
+Took 0.0102 seconds
+=> ["lab3_shell_Student", "lab3_shell_Course", "lab3_shell_SC", "lab3_shell_ops"]
+hbase:008:0> create 'lab3_shell_Student', 'Info', 'Score'
+Created table lab3_shell_Student
+Took 2.4450 seconds
+=> Hbase::Table - lab3_shell_Student
+hbase:009:0> create 'lab3_shell_Course', 'Info'
+Created table lab3_shell_Course
+Took 2.3414 seconds
+=> Hbase::Table - lab3_shell_Course
+hbase:010:0> create 'lab3_shell_SC', 'Info'
+Created table lab3_shell_SC
+Took 2.2366 seconds
+=> Hbase::Table - lab3_shell_SC
+hbase:011:0> students = [['2015001','Zhangsan','male','23'],['2015002','Mary','female','22'],['2015003','Lisi','male','24']]
+=> [["2015001", "Zhangsan", "male", "23"], ["2015002", "Mary", "female", "22"], ["2015003", "Lisi", "male", "24"]]
+hbase:012:0> courses = [['123001','Math','2.0'],['123002','Computer Science','5.0'],['123003','English','3.0']]
+=> [["123001", "Math", "2.0"], ["123002", "Computer Science", "5.0"], ["123003", "English", "3.0"]]
+hbase:013:0> choices = [['2015001','123001','86'],['2015001','123003','69'],['2015002','123002','77'],['2015002','123003','99'],['2015003','123001','98'],['2015003','123002','95']]
+=> [["2015001", "123001", "86"], ["2015001", "123003", "69"], ["2015002", "123002", "77"], ["2015002", "123003", "99"], ["2015003", "123001", "98"], ["2015003", "123002", "95"]]
+hbase:014:0> students.each do |s|
+hbase:015:1*   %w[S_No S_Name S_Sex S_Age].each_with_index { |f,i| put 'lab3_shell_Student', s[1], "Info:#{f}", s[i] }
+end
+Took 0.4703 seconds
+Took 0.0309 seconds
+Took 0.0194 seconds
+Took 0.0130 seconds
+Took 0.0143 seconds
+Took 0.0200 seconds
+Took 0.0149 seconds
+Took 0.0266 seconds
+Took 0.0194 seconds
+Took 0.0164 seconds
+Took 0.0274 seconds
+Took 0.0187 seconds
+=> [["2015001", "Zhangsan", "male", "23"], ["2015002", "Mary", "female", "22"], ["2015003", "Lisi", "male", "24"]]
+hbase:017:0> courses.each do |c|
+hbase:018:1*   %w[C_No C_Name C_Credit].each_with_index { |f,i| put 'lab3_shell_Course', c[0], "Info:#{f}", c[i] }
+end
+Took 0.0511 seconds
+Took 0.0165 seconds
+Took 0.0158 seconds
+Took 0.0160 seconds
+Took 0.0142 seconds
+Took 0.0110 seconds
+Took 0.0173 seconds
+Took 0.0221 seconds
+Took 0.0135 seconds
+=> [["123001", "Math", "2.0"], ["123002", "Computer Science", "5.0"], ["123003", "English", "3.0"]]
+hbase:020:0> choices.each do |s|
+hbase:021:1*   %w[SC_Sno SC_Cno SC_Score].each_with_index { |f,i| put 'lab3_shell_SC', "#{s[0]}_#{s[1]}", "Info:#{f}", s[i] }
+  name = students.find { |a| a[0] == s[0] }[1]
+  course = courses.find { |a| a[0] == s[1] }[1]
+  put 'lab3_shell_Student', name, "Score:#{course}", s[2]
+end
+Took 0.0387 seconds
+Took 0.0318 seconds
+Took 0.0212 seconds
+Took 0.0593 seconds
+Took 0.0113 seconds
+Took 0.0118 seconds
+Took 0.0129 seconds
+Took 0.0118 seconds
+Took 0.0299 seconds
+Took 0.0117 seconds
+Took 0.0112 seconds
+Took 0.0097 seconds
+Took 0.0175 seconds
+Took 0.0104 seconds
+Took 0.0169 seconds
+Took 0.0114 seconds
+Took 0.0115 seconds
+Took 0.0159 seconds
+Took 0.0140 seconds
+Took 0.0178 seconds
+Took 0.0143 seconds
+Took 0.0111 seconds
+Took 0.0210 seconds
+Took 0.0242 seconds
+=> [["2015001", "123001", "86"], ["2015001", "123003", "69"], ["2015002", "123002", "77"], ["2015002", "123003", "99"], ["2015003", "123001", "98"], ["2015003", "123002", "95"]]
+hbase:026:0> list 'lab3_.*'
+TABLE
+lab3_Course
+lab3_SC
+lab3_Student
+lab3_ops
+lab3_shell_Course
+lab3_shell_SC
+lab3_shell_Student
+7 row(s)
+Took 0.0750 seconds
+=> ["lab3_Course", "lab3_SC", "lab3_Student", "lab3_ops", "lab3_shell_Course", "lab3_shell_SC", "lab3_shell_Student"]
+hbase:027:0> describe 'lab3_shell_Student'
+Table lab3_shell_Student is ENABLED
+lab3_shell_Student, {TABLE_ATTRIBUTES => {METADATA => {'hbase.store.file-tracker.impl' => 'DEFAULT'}}}
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'Info', INDEX_BLOCK_ENCODING => 'NONE', VERSIONS => '1', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', REPLICATION_SCOPE => '0', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', COMPRESSION => 'NONE', BLOCKCACHE => 'true', BLOCKSIZE => '65536 B (64KB)'}
+
+{NAME => 'Score', INDEX_BLOCK_ENCODING => 'NONE', VERSIONS => '1', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', REPLICATION_SCOPE => '0', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', COMPRESSION => 'NONE', BLOCKCACHE => 'true', BLOCKSIZE => '65536 B (64KB)'}
+
+2 row(s)
+Quota is disabled
+Took 0.2196 seconds
+hbase:028:0> scan 'lab3_shell_Student'
+ROW  COLUMN+CELL
+ Lisi column=Info:S_Age, timestamp=2026-11-16T15:54:50.428, value=24
+ Lisi column=Info:S_Name, timestamp=2026-11-16T15:54:50.369, value=Lisi
+ Lisi column=Info:S_No, timestamp=2026-11-16T15:54:50.351, value=2015003
+ Lisi column=Info:S_Sex, timestamp=2026-11-16T15:54:50.393, value=male
+ Lisi column=Score:Computer Science, timestamp=2026-11-16T15:54:51.603, value=95
+ Lisi column=Score:Math, timestamp=2026-11-16T15:54:51.511, value=98
+ Mary column=Info:S_Age, timestamp=2026-11-16T15:54:50.324, value=22
+ Mary column=Info:S_Name, timestamp=2026-11-16T15:54:50.273, value=Mary
+ Mary column=Info:S_No, timestamp=2026-11-16T15:54:50.254, value=2015002
+ Mary column=Info:S_Sex, timestamp=2026-11-16T15:54:50.299, value=female
+ Mary column=Score:Computer Science, timestamp=2026-11-16T15:54:51.364, value=77
+ Mary column=Score:English, timestamp=2026-11-16T15:54:51.431, value=99
+ Zhangsan column=Info:S_Age, timestamp=2026-11-16T15:54:50.230, value=23
+ Zhangsan column=Info:S_Name, timestamp=2026-11-16T15:54:50.185, value=Zhangsan
+ Zhangsan column=Info:S_No, timestamp=2026-11-16T15:54:50.144, value=2015001
+ Zhangsan column=Info:S_Sex, timestamp=2026-11-16T15:54:50.210, value=male
+ Zhangsan column=Score:English, timestamp=2026-11-16T15:54:51.288, value=69
+ Zhangsan column=Score:Math, timestamp=2026-11-16T15:54:51.184, value=86
+3 row(s)
+Took 0.1852 seconds
+hbase:029:0> scan 'lab3_shell_Course'
+ROW  COLUMN+CELL
+ 123001 column=Info:C_Credit, timestamp=2026-11-16T15:54:50.590, value=2.0
+ 123001 column=Info:C_Name, timestamp=2026-11-16T15:54:50.571, value=Math
+ 123001 column=Info:C_No, timestamp=2026-11-16T15:54:50.550, value=123001
+ 123002 column=Info:C_Credit, timestamp=2026-11-16T15:54:50.647, value=5.0
+ 123002 column=Info:C_Name, timestamp=2026-11-16T15:54:50.632, value=Computer Science
+ 123002 column=Info:C_No, timestamp=2026-11-16T15:54:50.617, value=123002
+ 123003 column=Info:C_Credit, timestamp=2026-11-16T15:54:50.713, value=3.0
+ 123003 column=Info:C_Name, timestamp=2026-11-16T15:54:50.695, value=English
+ 123003 column=Info:C_No, timestamp=2026-11-16T15:54:50.661, value=123003
+3 row(s)
+Took 0.0586 seconds
+hbase:030:0> scan 'lab3_shell_SC'
+ROW  COLUMN+CELL
+ 2015001_123001 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.124, value=123001
+ 2015001_123001 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.154, value=86
+ 2015001_123001 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.091, value=2015001
+ 2015001_123003 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.256, value=123003
+ 2015001_123003 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.268, value=69
+ 2015001_123003 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.239, value=2015001
+ 2015002_123002 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.336, value=123002
+ 2015002_123002 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.351, value=77
+ 2015002_123002 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.322, value=2015002
+ 2015002_123003 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.399, value=123003
+ 2015002_123003 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.414, value=99
+ 2015002_123003 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.382, value=2015002
+ 2015003_123001 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.464, value=123001
+ 2015003_123001 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.483, value=98
+ 2015003_123001 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.444, value=2015003
+ 2015003_123002 column=Info:SC_Cno, timestamp=2026-11-16T15:54:51.550, value=123002
+ 2015003_123002 column=Info:SC_Score, timestamp=2026-11-16T15:54:51.574, value=95
+ 2015003_123002 column=Info:SC_Sno, timestamp=2026-11-16T15:54:51.534, value=2015003
+6 row(s)
+Took 0.0757 seconds
+hbase:031:0> count 'lab3_shell_Student'
+3 row(s)
+Took 0.1058 seconds
+=> 3
+hbase:032:0> count 'lab3_shell_Course'
+3 row(s)
+Took 0.0209 seconds
+=> 3
+hbase:033:0> count 'lab3_shell_SC'
+6 row(s)
+Took 0.0146 seconds
+=> 6
+hbase:034:0> scan 'lab3_shell_Student', { COLUMNS => 'Score' }
+ROW  COLUMN+CELL
+ Lisi column=Score:Computer Science, timestamp=2026-11-16T15:54:51.603, value=95
+ Lisi column=Score:Math, timestamp=2026-11-16T15:54:51.511, value=98
+ Mary column=Score:Computer Science, timestamp=2026-11-16T15:54:51.364, value=77
+ Mary column=Score:English, timestamp=2026-11-16T15:54:51.431, value=99
+ Zhangsan column=Score:English, timestamp=2026-11-16T15:54:51.288, value=69
+ Zhangsan column=Score:Math, timestamp=2026-11-16T15:54:51.184, value=86
+3 row(s)
+Took 0.0444 seconds
+hbase:035:0> scan 'lab3_shell_Student', { COLUMNS => 'Score:Math' }
+ROW  COLUMN+CELL
+ Lisi column=Score:Math, timestamp=2026-11-16T15:54:51.511, value=98
+ Zhangsan column=Score:Math, timestamp=2026-11-16T15:54:51.184, value=86
+2 row(s)
+Took 0.0770 seconds
+hbase:036:0> # Shell filtered scans omit missing rows. get explicitly demonstrates null.
+hbase:037:0> get 'lab3_shell_Student', 'Mary', 'Score:Math'
+COLUMN  CELL
+0 row(s)
+Took 0.0194 seconds
+hbase:038:0> put 'lab3_shell_Student', 'Zhangsan', 'Score:Math', '90'
+Took 0.0165 seconds
+hbase:039:0> get 'lab3_shell_Student', 'Zhangsan', 'Score:Math'
+COLUMN  CELL
+ Score:Math timestamp=2026-11-16T15:54:52.803, value=90
+1 row(s)
+Took 0.0164 seconds
+hbase:040:0> put 'lab3_shell_Student', 'Zhangsan', 'Score:Math', '86'
+Took 0.0111 seconds
+hbase:041:0> create 'lab3_shell_ops', 'Info'
+Created table lab3_shell_ops
+Took 2.2212 seconds
+=> Hbase::Table - lab3_shell_ops
+hbase:042:0> alter 'lab3_shell_ops', NAME => 'Extra'
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 3.2418 seconds
+hbase:043:0> put 'lab3_shell_ops', 'temp', 'Info:x', '1'
+Took 0.0413 seconds
+hbase:044:0> put 'lab3_shell_ops', 'temp', 'Extra:y', '2'
+Took 0.0202 seconds
+hbase:045:0> deleteall 'lab3_shell_ops', 'temp', 'Extra:y'
+Took 0.0227 seconds
+hbase:046:0> alter 'lab3_shell_ops', NAME => 'Extra', METHOD => 'delete'
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 3.7525 seconds
+hbase:047:0> deleteall 'lab3_shell_ops', 'temp'
+Took 0.0103 seconds
+hbase:048:0> count 'lab3_shell_ops'
+0 row(s)
+Took 0.0388 seconds
+=> 0
+hbase:049:0> put 'lab3_shell_ops', 'temp', 'Info:x', '1'
+Took 0.0233 seconds
+hbase:050:0> truncate 'lab3_shell_ops'
+Truncating 'lab3_shell_ops' table (it may take a while):
+Disabling table...
+Truncating table...
+Took 4.5654 seconds
+hbase:051:0> count 'lab3_shell_ops'
+0 row(s)
+Took 2.9594 seconds
+=> 0
+hbase:052:0> puts 'HBASE_SHELL_COMPLETE'
+HBASE_SHELL_COMPLETE
+hbase:053:0> exit

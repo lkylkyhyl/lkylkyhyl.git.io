@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "vertices": 10,
+  "edges": 15,
+  "iterations": [
+    {
+      "iteration": 1,
+      "oracle_mass": 10.0,
+      "mr_max_error": 4e-17,
+      "spark_max_error": 1e-16
+    },
+    {
+      "iteration": 2,
+      "oracle_mass": 10.0,
+      "mr_max_error": 5e-16,
+      "spark_max_error": 5e-16
+    },
+    {
+      "iteration": 3,
+      "oracle_mass": 10.0,
+      "mr_max_error": 4e-16,
+      "spark_max_error": 4e-16
+    },
+    {
+      "iteration": 4,
+      "oracle_mass": 10.0,
+      "mr_max_error": 3e-16,
+      "spark_max_error": 3e-16
+    },
+    {
+      "iteration": 5,
+      "oracle_mass": 10.0,
+      "mr_max_error": 3e-16,
+      "spark_max_error": 3e-16
+    },
+    {
+      "iteration": 6,
+      "oracle_mass": 10.0,
+      "mr_max_error": 7.5e-16,
+      "spark_max_error": 6.5e-16
+    },
+    {
+      "iteration": 7,
+      "oracle_mass": 10.0,
+      "mr_max_error": 5.71875e-16,
+      "spark_max_error": 5.71875e-16
+    },
+    {
+      "iteration": 8,
+      "oracle_mass": 10.0,
+      "mr_max_error": 4.171875e-16,
+      "spark_max_error": 3.99609375e-16
+    },
+    {
+      "iteration": 9,
+      "oracle_mass": 10.0,
+      "mr_max_error": 4.75443359375e-16,
+      "spark_max_error": 3.75443359375e-16
+    },
+    {
+      "iteration": 10,
+      "oracle_mass": 10.0,
+      "mr_max_error": 3.55733193359375e-16,
+      "spark_max_error": 1.00660658203125e-15
+    }
+  ],
+  "final_outputs_identical": true
+}
